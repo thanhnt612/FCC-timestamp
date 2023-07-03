@@ -25,10 +25,11 @@ app.get("/api/:date", function (req, res) {
   
   if(validDate(date)) {
     date = new Date(+req.params.date)
+  }
+  if(validDate(date)) {
     res.json({error:"Invalid Date"})
     return;
   }
-  
   res.json({
     unix: date.getTime(),
     utc:date.toUTCString()
